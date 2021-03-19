@@ -113,12 +113,13 @@ const HeaderLinks = styled(Row)`
     justify-content: flex-end;
 `};
 `
-
+//autonio ui change
 const AccountElement = styled.div<{ active: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${({ theme, active }) => (!active ? theme.bg1 : theme.bg3)};
+  // background-color: ${({ theme, active }) => (!active ? theme.bg1 : theme.bg3)};
+  background-color: ${({ theme, active }) => (!active ? theme.bg1 : '#444c59')};
   border-radius: 12px;
   white-space: nowrap;
   width: 100%;
@@ -349,7 +350,7 @@ export default function Header() {
           >
             {t('pool')}
           </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={'/uni'}>
+          <StyledNavLink id={`stake-nav-link`} to={'/niox'}>
             NIOX
           </StyledNavLink>
           {/* <StyledNavLink id={`stake-nav-link`} to={'/vote'}>

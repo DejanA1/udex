@@ -146,7 +146,7 @@ export default function Vote() {
               </RowBetween>
               <ExternalLink
                 style={{ color: 'white', textDecoration: 'underline' }}
-                href="https://uniswap.org/blog/uni"
+                href="i"
                 target="_blank"
               >
                 <TYPE.white fontSize={14}>Read more about Uniswap governance</TYPE.white>
@@ -178,12 +178,12 @@ export default function Vote() {
             userDelegatee &&
             userDelegatee !== ZERO_ADDRESS &&
             JSBI.notEqual(JSBI.BigInt(0), uniBalance?.raw) ? (
-            <TYPE.body fontWeight={500} mr="6px">
-              <FormattedCurrencyAmount currencyAmount={uniBalance} /> Votes
-            </TYPE.body>
-          ) : (
-            ''
-          )}
+                  <TYPE.body fontWeight={500} mr="6px">
+                    <FormattedCurrencyAmount currencyAmount={uniBalance} /> Votes
+                  </TYPE.body>
+                ) : (
+                  ''
+                )}
         </WrapSmall>
         {!showUnlockVoting && (
           <RowBetween>
@@ -206,8 +206,8 @@ export default function Vote() {
                 </AddressButton>
               </RowFixed>
             ) : (
-              ''
-            )}
+                ''
+              )}
           </RowBetween>
         )}
         {allProposals?.length === 0 && (

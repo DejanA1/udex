@@ -9,9 +9,9 @@ import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/
 import { Countdown } from './Countdown'
 import Loader from '../../components/Loader'
 import { useActiveWeb3React } from '../../hooks'
-import { JSBI } from '@uniswap/sdk'
-import { BIG_INT_ZERO } from '../../constants'
-import { OutlineCard } from '../../components/Card'
+// import { JSBI } from '@uniswap/sdk'
+// import { BIG_INT_ZERO } from '../../constants'
+// import { OutlineCard } from '../../components/Card'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
@@ -48,11 +48,13 @@ export default function Earn() {
    * only show staking cards with balance
    * @todo only account for this if rewards are inactive
    */
-  const stakingInfosWithBalance = stakingInfos?.filter(s => JSBI.greaterThan(s.stakedAmount.raw, BIG_INT_ZERO))
+  // const stakingInfosWithBalance = stakingInfos?.filter(s => JSBI.greaterThan(s.stakedAmount.raw, BIG_INT_ZERO))
 
   // toggle copy if rewards are inactive
   const stakingRewardsExist = Boolean(typeof chainId === 'number' && (STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0)
-
+  // console.log("akash")
+  // console.log("stakingInfos", stakingInfos)
+  // console.log("stakingInfosWithBalance", stakingInfosWithBalance)
   return (
     <PageWrapper gap="lg" justify="center">
       <TopSection gap="md">
@@ -88,8 +90,21 @@ export default function Earn() {
           <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>Participating pools</TYPE.mediumHeader>
           <Countdown exactEnd={stakingInfos?.[0]?.periodFinish} />
         </DataRow>
-
+        {/* // working section staking */}
         <PoolSection>
+          {stakingRewardsExist && stakingInfos?.length === 0 ? (
+            <Loader style={{ margin: 'auto' }} />
+          ) : !stakingRewardsExist ? (
+            'No active rewards'
+          ) : (
+                stakingInfos?.map(stakingInfo => {
+                  // need to sort by added liquidity here
+                  return <PoolCard key={stakingInfo.stakingRewardAddress} stakingInfo={stakingInfo} />
+                })
+              )}
+        </PoolSection>
+        {/* till here akash */}
+        {/* <PoolSection>
           {stakingRewardsExist && stakingInfos?.length === 0 ? (
             <Loader style={{ margin: 'auto' }} />
           ) : !stakingRewardsExist ? (
@@ -102,7 +117,7 @@ export default function Earn() {
                     return <PoolCard key={stakingInfo.stakingRewardAddress} stakingInfo={stakingInfo} />
                   })
                 )}
-        </PoolSection>
+        </PoolSection> */}
       </AutoColumn>
     </PageWrapper>
   )

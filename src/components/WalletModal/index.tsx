@@ -300,8 +300,8 @@ export default function WalletModal({
             {error instanceof UnsupportedChainIdError ? (
               <h5>Please connect to the appropriate Ethereum network.</h5>
             ) : (
-              'Error connecting. Try refreshing the page.'
-            )}
+                'Error connecting. Try refreshing the page.'
+              )}
           </ContentWrapper>
         </UpperSection>
       )
@@ -334,10 +334,10 @@ export default function WalletModal({
             </HoverText>
           </HeaderRow>
         ) : (
-          <HeaderRow>
-            <HoverText>Connect to a wallet</HoverText>
-          </HeaderRow>
-        )}
+            <HeaderRow>
+              <HoverText>Connect to a wallet</HoverText>
+            </HeaderRow>
+          )}
         <ContentWrapper>
           {walletView === WALLET_VIEWS.PENDING ? (
             <PendingView
@@ -347,8 +347,8 @@ export default function WalletModal({
               tryActivation={tryActivation}
             />
           ) : (
-            <OptionGrid>{getOptions()}</OptionGrid>
-          )}
+              <OptionGrid>{getOptions()}</OptionGrid>
+            )}
           {walletView !== WALLET_VIEWS.PENDING && (
             <Blurb>
               <span>New to Ethereum? &nbsp;</span>{' '}

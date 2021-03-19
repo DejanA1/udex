@@ -51,7 +51,7 @@ export function colors(darkMode: boolean): Colors {
     //autonio ui change 27-02-2021
     bg1: darkMode ? '#212429' : '#070C12',
     //autonio ui change 27-02-2021
-    bg2: darkMode ? '#2F3641' : '#2F3641',
+    bg2: darkMode ? '#2F3641' : '#1A1F28',
     //autonio ui change 27-02-2021
     bg3: darkMode ? '#40444F' : '#1A1F28',
     bg4: darkMode ? '#565A69' : '#CED0D9',
@@ -63,7 +63,7 @@ export function colors(darkMode: boolean): Colors {
 
     //primary colors
     //autonio ui change 27-02-2021
-    primary1: darkMode ? '#2F3641' : '#2F3641',
+    primary1: darkMode ? '#acca27' : '#acca27',
     primary2: darkMode ? '#3680E7' : '#FF8CC3',
     primary3: darkMode ? '#4D8FEA' : '#FF99C9',
     primary4: darkMode ? '#376bad70' : '#F6DDE8',
@@ -184,12 +184,12 @@ export const TYPE = {
 
 export const FixedGlobalStyle = createGlobalStyle`
 html, input, textarea, button {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-display: fallback;
 }
 @supports (font-variation-settings: normal) {
   html, input, textarea, button {
-    font-family: 'Inter var', sans-serif;
+    font-family: 'Work Sans', sans-serif;
   }
 }
 
@@ -233,7 +233,7 @@ body {
   background-position: 0 -30vh;
   background-repeat: no-repeat;
   background-image: ${({ theme }) =>
-    `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, theme.primary1)} 0%, ${transparentize(
+    `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9)} 0%, ${transparentize(
       1,
       theme.bg1
     )} 100%)`};

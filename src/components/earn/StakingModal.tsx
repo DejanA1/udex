@@ -71,7 +71,8 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
 
   // pair contract for this token to be staked
   const dummyPair = new Pair(new TokenAmount(stakingInfo.tokens[0], '0'), new TokenAmount(stakingInfo.tokens[1], '0'))
-  const pairContract = usePairContract(dummyPair.liquidityToken.address)
+  // const pairContract = usePairContract(dummyPair.liquidityToken.address)
+  const pairContract = usePairContract(stakingInfo.lp && stakingInfo.lp !== '' ? stakingInfo.lp : dummyPair.liquidityToken.address)
 
   // approval data for stake
   const deadline = useTransactionDeadline()
@@ -83,9 +84,13 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
   async function onStake() {
     setAttempting(true)
     if (stakingContract && parsedAmount && deadline) {
+      console.log("ApprovalState.APPROVED", approval, ApprovalState.APPROVED);
       if (approval === ApprovalState.APPROVED) {
+        // console.log("if", parsedAmount.raw.toString(16))
         await stakingContract.stake(`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
       } else if (signatureData) {
+        // console.log("ielse", signatureData, stakingContract.address)
+
         stakingContract
           .stakeWithPermit(
             `0x${parsedAmount.raw.toString(16)}`,
@@ -144,7 +149,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
       { name: 'verifyingContract', type: 'address' }
     ]
     const domain = {
-      name: 'Uniswap V2',
+      name: 'SmartdexPair',
       version: '1',
       chainId: chainId,
       verifyingContract: pairContract.address
@@ -219,8 +224,8 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
             </div>
 
             <TYPE.black>
-              {hypotheticalRewardRate.multiply((60 * 60 * 24 * 7).toString()).toSignificant(4, { groupSeparator: ',' })}{' '}
-              UNI / week
+              {hypotheticalRewardRate.multiply((60 * 60 * 24).toString()).toSignificant(4, { groupSeparator: ',' })}{' '}
+              NIOX / DAY
             </TYPE.black>
           </HypotheticalRewardRate>
 
@@ -248,7 +253,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Depositing Liquidity</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} UNI-V2</TYPE.body>
+            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} NIOXV2</TYPE.body>
           </AutoColumn>
         </LoadingView>
       )}
@@ -256,7 +261,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Transaction Submitted</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>Deposited {parsedAmount?.toSignificant(4)} UNI-V2</TYPE.body>
+            <TYPE.body fontSize={20}>Deposited {parsedAmount?.toSignificant(4)} NIOXV2</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

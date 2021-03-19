@@ -47,7 +47,7 @@ export function ConfirmAddModalBottom({
       </RowBetween>
       <RowBetween style={{ justifyContent: 'flex-end' }}>
         <TYPE.body>
-          {`1 ${currencies[Field.CURRENCY_B]?.symbol === 'ETH' ? 'MATIC' : currencies[Field.CURRENCY_B]?.symbol} = ${price?.invert().toSignificant(4)} ${currencies[Field.CURRENCY_A]?.symbol
+          {`1 ${currencies[Field.CURRENCY_B]?.symbol === 'ETH' ? 'MATIC' : currencies[Field.CURRENCY_B]?.symbol} = ${price?.invert().toSignificant(4)} ${currencies[Field.CURRENCY_A]?.symbol === 'ETH' ? 'MATIC' : currencies[Field.CURRENCY_A]?.symbol
             }`}
         </TYPE.body>
       </RowBetween>

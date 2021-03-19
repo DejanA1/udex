@@ -73,7 +73,7 @@ export function V1LiquidityInfo({
       </RowBetween>
       <RowBetween mb="1rem">
         <Text fontSize={16} fontWeight={500}>
-          Pooled ETH:
+          Pooled MATIC:
         </Text>
         <RowFixed>
           <Text fontSize={16} fontWeight={500} marginLeft={'6px'}>
@@ -120,9 +120,9 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
   const priceDifferenceFraction: Fraction | undefined =
     v1SpotPrice && v2SpotPrice
       ? v1SpotPrice
-          .divide(v2SpotPrice)
-          .multiply('100')
-          .subtract('100')
+        .divide(v2SpotPrice)
+        .multiply('100')
+        .subtract('100')
       : undefined
 
   const priceDifferenceAbs: Fraction | undefined = priceDifferenceFraction?.lessThan(ZERO)
@@ -132,17 +132,17 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
   const minAmountETH: JSBI | undefined =
     v2SpotPrice && tokenWorth
       ? tokenWorth
-          .divide(v2SpotPrice)
-          .multiply(WEI_DENOM)
-          .multiply(ALLOWED_OUTPUT_MIN_PERCENT).quotient
+        .divide(v2SpotPrice)
+        .multiply(WEI_DENOM)
+        .multiply(ALLOWED_OUTPUT_MIN_PERCENT).quotient
       : ethWorth?.numerator
 
   const minAmountToken: JSBI | undefined =
     v2SpotPrice && ethWorth
       ? ethWorth
-          .multiply(v2SpotPrice)
-          .multiply(JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(token.decimals)))
-          .multiply(ALLOWED_OUTPUT_MIN_PERCENT).quotient
+        .multiply(v2SpotPrice)
+        .multiply(JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(token.decimals)))
+        .multiply(ALLOWED_OUTPUT_MIN_PERCENT).quotient
       : tokenWorth?.numerator
 
   const addTransaction = useTransactionAdder()
@@ -282,8 +282,8 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
               ) : approval === ApprovalState.APPROVED ? (
                 'Approved'
               ) : (
-                'Approve'
-              )}
+                    'Approve'
+                  )}
             </ButtonConfirmed>
           </AutoColumn>
           <AutoColumn gap="12px" style={{ flex: '1' }}>
@@ -370,8 +370,8 @@ export default function MigrateV1Exchange({
         ) : userLiquidityBalance && token ? (
           <V1PairMigration liquidityTokenAmount={userLiquidityBalance} token={token} />
         ) : (
-          <EmptyState message="Loading..." />
-        )}
+                <EmptyState message="Loading..." />
+              )}
       </AutoColumn>
     </BodyWrapper>
   )
