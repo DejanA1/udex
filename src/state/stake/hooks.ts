@@ -4,7 +4,9 @@ import {
   UNI,
   NIOX,
   USDC,
-  DEV
+  DEV,
+  XENO,
+  ADDY
 } from '../../constants'
 import { STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
@@ -47,6 +49,19 @@ export const STAKING_REWARDS_INFO: {
       name: 'test',
       lp: '',
       baseToken: DEV
+      //STAKINGREWARDSFACTORY- 0x5D490e48417Dd2F6165CEB3b2c04352675278998
+    },
+
+  ],
+  [ChainId.ROPSTEN]: [//TODO: ropsten
+    {
+      tokens: [XENO, ADDY],
+      stakingRewardAddress: '0xd0d51827C8D63fc6cF3d493977AC46f963D92C29',
+      ended: false,
+
+      name: 'test',
+      lp: '',
+      baseToken: XENO
       //STAKINGREWARDSFACTORY- 0x5D490e48417Dd2F6165CEB3b2c04352675278998
     },
 

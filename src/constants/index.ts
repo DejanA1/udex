@@ -26,6 +26,8 @@ export const COMP = new Token(ChainId.MAINNET, '0xc00e94Cb662C3520282E6f57172140
 export const MKR = new Token(ChainId.MAINNET, '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2', 18, 'MKR', 'Maker')
 export const AMPL = new Token(ChainId.MAINNET, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth')
 export const WBTC = new Token(ChainId.MAINNET, '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', 8, 'WBTC', 'Wrapped BTC')
+export const XENO = new Token(ChainId.ROPSTEN, '0x13681b1f6f93977f62389e0a2b1e84ba24d78fbc', 4, 'XENO', 'XENO')
+export const ADDY = new Token(ChainId.ROPSTEN, '0x6aa16f7844e3af995985bd035eec62d88e418ef1', 8, 'ADDY', 'ADDY Token')
 
 // Block time here is slightly higher (~1s) than average in order to avoid ongoing proposals past the displayed time
 export const AVERAGE_BLOCK_TIME_IN_SECS = 13

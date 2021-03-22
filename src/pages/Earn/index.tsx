@@ -40,7 +40,7 @@ flex-direction: column;
 
 export default function Earn() {
   const { chainId } = useActiveWeb3React()
-
+  // console.log("chainid", chainId);
   // staking info for connected account
   const stakingInfos = useStakingInfo()
 
@@ -97,11 +97,11 @@ export default function Earn() {
           ) : !stakingRewardsExist ? (
             'No active rewards'
           ) : (
-                stakingInfos?.map(stakingInfo => {
-                  // need to sort by added liquidity here
-                  return <PoolCard key={stakingInfo.stakingRewardAddress} stakingInfo={stakingInfo} />
-                })
-              )}
+            stakingInfos?.map(stakingInfo => {
+              // need to sort by added liquidity here
+              return <PoolCard key={stakingInfo.stakingRewardAddress} stakingInfo={stakingInfo} />
+            })
+          )}
         </PoolSection>
         {/* till here akash */}
         {/* <PoolSection>

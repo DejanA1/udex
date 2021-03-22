@@ -480,7 +480,100 @@ export default function Manage({
   const tokenB = wrappedCurrency(currencyB ?? undefined, chainId)
 
   const [, stakingTokenPair] = usePair(tokenA, tokenB)
-  console.log("stakingTokenPair", stakingTokenPair);
+
+  // let stakingTokenPair: Pair = {
+  //   "liquidityToken": {
+  //     "decimals": 18,
+  //     "symbol": "UNI-V2",
+  //     "name": "Uniswap V2",
+  //     "chainId": 137,
+  //     "address": "0xEc3ac6F749FE878ebb33bDB545e302D8062B7856"
+  //   },
+  //   "tokenAmounts": [
+  //     {
+  //       "numerator": [
+  //         -285275255,
+  //         2
+  //       ],
+  //       "denominator": [
+  //         1000000
+  //       ],
+  //       "currency": {
+  //         "decimals": 6,
+  //         "symbol": "USDC",
+  //         "name": "USD Coin (PoS)",
+  //         "chainId": 137,
+  //         "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+  //         "tokenInfo": {
+  //           "chainId": 137,
+  //           "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+  //           "name": "USD Coin (PoS)",
+  //           "symbol": "USDC",
+  //           "decimals": 6,
+  //           "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+  //         },
+  //         "tags": []
+  //       },
+  //       "token": {
+  //         "decimals": 6,
+  //         "symbol": "USDC",
+  //         "name": "USD Coin (PoS)",
+  //         "chainId": 137,
+  //         "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+  //         "tokenInfo": {
+  //           "chainId": 137,
+  //           "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+  //           "name": "USD Coin (PoS)",
+  //           "symbol": "USDC",
+  //           "decimals": 6,
+  //           "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+  //         },
+  //         "tags": []
+  //       }
+  //     },
+  //     {
+  //       "numerator": [
+  //         456426026
+  //       ],
+  //       "denominator": [
+  //         10000
+  //       ],
+  //       "currency": {
+  //         "decimals": 4,
+  //         "symbol": "NIOX",
+  //         "name": "Autonio",
+  //         "chainId": 137,
+  //         "address": "0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96",
+  //         "tokenInfo": {
+  //           "chainId": 137,
+  //           "address": "0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96",
+  //           "name": "Autonio",
+  //           "symbol": "NIOX",
+  //           "decimals": 4,
+  //           "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/2151.png"
+  //         },
+  //         "tags": []
+  //       },
+  //       "token": {
+  //         "decimals": 4,
+  //         "symbol": "NIOX",
+  //         "name": "Autonio",
+  //         "chainId": 137,
+  //         "address": "0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96",
+  //         "tokenInfo": {
+  //           "chainId": 137,
+  //           "address": "0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96",
+  //           "name": "Autonio",
+  //           "symbol": "NIOX",
+  //           "decimals": 4,
+  //           "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/2151.png"
+  //         },
+  //         "tags": []
+  //       }
+  //     }
+  //   ]
+  // }
+  console.log(stakingTokenPair)
   const stakingInfos = useStakingInfo(stakingTokenPair)
   let stakingInfo = stakingInfos?.reduce<any>((memo, staking) => {
     if (staking.stakingRewardAddress === rewardsAddress) {
