@@ -44,6 +44,8 @@ const initialState: ListsState = {
   activeListUrls: DEFAULT_ACTIVE_LIST_URLS
 }
 
+console.log("debugState", 12313)
+
 export default createReducer(initialState, builder =>
   builder
     .addCase(fetchTokenList.pending, (state, { payload: { requestId, url } }) => {
@@ -78,7 +80,6 @@ export default createReducer(initialState, builder =>
         if (DEFAULT_ACTIVE_LIST_URLS.includes(url)) {
           state.activeListUrls?.push(url)
         }
-
         state.byUrl[url] = {
           ...state.byUrl[url],
           loadingRequestId: null,
@@ -93,7 +94,6 @@ export default createReducer(initialState, builder =>
         // no-op since it's not the latest request
         return
       }
-
       state.byUrl[url] = {
         ...state.byUrl[url],
         loadingRequestId: null,

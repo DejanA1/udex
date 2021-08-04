@@ -14,6 +14,23 @@
             "decimals": 18,
             "chainId": 137,
             "logoURI": "https://coin.top/production/upload/logo/TG3XANY34mpabHM2DNc5ajhjMJVUQU741Y.png"
-        }        
+        },
+        {
+            "name": "Liquid",
+            "symbol": "$L1",
+            "address": "0x928BcA1fBBE72Ce46ffe06Cd752c552E503c36e9",
+            "decimals": 18,
+            "chainId": 137,
+            "logoURI": "https://coin.top/production/upload/logo/TG3XANY34mpabHM2DNc5ajhjMJVUQU741Y.png"
+        },
+        {
+            "name": "USD Coin",
+            "symbol": "USDC",
+            "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "decimals": 18,
+            "chainId": 137,
+            "logoURI": "https://coin.top/production/upload/logo/TG3XANY34mpabHM2DNc5ajhjMJVUQU741Y.png"   
+        }
+
     ]
 }

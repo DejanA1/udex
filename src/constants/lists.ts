@@ -8,7 +8,7 @@
 
 export const UNSUPPORTED_LIST_URLS: string[] = []
 
-// const COMPOUND_LIST = 'https://raw.githubusercontent.com/compound-finance/token-list/master/compound.tokenlist.json'
+const COMPOUND_LIST = 'https://raw.githubusercontent.com/compound-finance/token-list/master/compound.tokenlist.json'
 // const UMA_LIST = 'https://umaproject.org/uma.tokenlist.json'
 // const AAVE_LIST = 'tokenlist.aave.eth'
 // const SYNTHETIX_LIST = 'synths.snx.eth'
@@ -26,7 +26,7 @@ const LIQUID_LIST = "https://github.com/DejanA1/udex/blob/master/src/constants/t
 // lower index == higher priority for token import
 export const DEFAULT_LIST_OF_LISTS: string[] = [
   LIQUID_LIST,
-  // COMPOUND_LIST,
+  COMPOUND_LIST
   // AAVE_LIST,
   // SYNTHETIX_LIST,
   // UMA_LIST,
@@ -44,3 +44,5 @@ export const DEFAULT_LIST_OF_LISTS: string[] = [
 
 // default lists to be 'active' aka searched across
 export const DEFAULT_ACTIVE_LIST_URLS: string[] = [LIQUID_LIST]
+
+console.log("debug List", DEFAULT_ACTIVE_LIST_URLS )
