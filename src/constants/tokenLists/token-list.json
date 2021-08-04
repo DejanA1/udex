@@ -1,17 +1,13 @@
 {
     "name": "UDexFarm Tokens",
-    "version": {
-        "major": 1,
-        "minor": 0,
-        "patch": 0
-    },
-    "tags": {},
     "logoURI": "https://coin.top/production/upload/logo/TVoxBVmFuBM7dsRnfi1V8v1iupv4uyPifN.jpeg",
     "keywords": [
         "liquidAlpha",
         "udex"
     ],
-    "tokens": [{
+    "timestamp": "2021-05-27T20:37:00.000+00:00",
+    "tokens": [
+        {
             "name": "LiquidAlpha",
             "symbol": "$Liquid",
             "address": "0x97e1b3C495E149b355E8d5E3f46a44980644259a",
