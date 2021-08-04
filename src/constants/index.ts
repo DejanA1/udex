@@ -28,6 +28,10 @@ export const AMPL = new Token(ChainId.MAINNET, '0xD46bA6D942050d489DBd938a2C909A
 export const WBTC = new Token(ChainId.MAINNET, '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', 8, 'WBTC', 'Wrapped BTC')
 export const XENO = new Token(ChainId.ROPSTEN, '0x13681b1f6f93977f62389e0a2b1e84ba24d78fbc', 4, 'XENO', 'XENO')
 export const ADDY = new Token(ChainId.ROPSTEN, '0x6aa16f7844e3af995985bd035eec62d88e418ef1', 8, 'ADDY', 'ADDY Token')
+//piggy
+export const $Liquid = new Token(ChainId.MATIC, '0x97e1b3C495E149b355E8d5E3f46a44980644259a', 18, '$Liquid', 'LiquidAlpha')
+export const $L1 = new Token(ChainId.MATIC, '0x928BcA1fBBE72Ce46ffe06Cd752c552E503c36e9', 18, '$L1', 'Liquid1')
+export const WMATIC = new Token(ChainId.MATIC, '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', 18, 'WMATIC', 'Polygon' )
 
 // Block time here is slightly higher (~1s) than average in order to avoid ongoing proposals past the displayed time
 export const AVERAGE_BLOCK_TIME_IN_SECS = 13
@@ -45,7 +49,8 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96', 4, 'NIOX', 'Autonio')
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96', 4, 'NIOX', 'Autonio'),
+  [ChainId.MATIC]: new Token(ChainId.MATIC, '0x97e1b3C495E149b355E8d5E3f46a44980644259a', 18, '$Liquid', 'LiquidAlpha')
 }
 
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {

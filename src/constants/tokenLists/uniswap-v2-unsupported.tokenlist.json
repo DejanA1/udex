@@ -17,6 +17,14 @@
       "decimals": 6,
       "chainId": 1,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x4922a015c4407F87432B179bb209e125432E4a2A/logo.png"
+    },
+    {
+      "name": "Liquid1",
+      "address": "0x97e1b3C495E149b355E8d5E3f46a44980644259a",
+      "symbol": "$Liquid",
+      "decimals": 18,
+      "chainId": 137,
+      "logoURI": "/images/coins/ADA.png"
     }
   ]
 }

@@ -2,11 +2,12 @@ import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount, Pair } from '@uniswa
 import { useMemo } from 'react'
 import {
   UNI,
-  NIOX,
   USDC,
-  DEV,
   XENO,
-  ADDY
+  ADDY,
+  $Liquid,
+  $L1,
+  WMATIC
 } from '../../constants'
 import { STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
@@ -29,26 +30,37 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.MATIC]: [//TODO: MATIC
+   
     {
-      tokens: [NIOX, USDC],
-      // stakingRewardAddress: '0x817cb2bfd78ec89f223476c2975aecd723483970',
-      stakingRewardAddress: '0xf6bfe82cde3385102acc56eae8a5e92c62963021',
+      tokens: [$Liquid, USDC],
+      stakingRewardAddress: '0x91BDD1979889D86c8882dD8eb4e45A42d82e02b8',
       ended: false,
 
       name: '',
       lp: '',
-      // lp: '0xF4c10794E8789ACbc134c043a0e222ce586256EF',
       baseToken: USDC
       //STAKINGREWARDSFACTORY- 0x5D490e48417Dd2F6165CEB3b2c04352675278998
     },
+
     {
-      tokens: [NIOX, DEV],
-      stakingRewardAddress: '0xe4c7a21995c017d43236d03b7253b86faff9219a',
+      tokens: [$L1, USDC],
+      stakingRewardAddress: '0x91BDD1979889D86c8882dD8eb4e45A42d82e02b8',
       ended: false,
 
-      name: 'test',
+      name: '',
       lp: '',
-      baseToken: DEV
+      baseToken: USDC
+      //STAKINGREWARDSFACTORY- 0x5D490e48417Dd2F6165CEB3b2c04352675278998
+    },
+
+    {
+      tokens: [$Liquid, WMATIC],
+      stakingRewardAddress: '0x91BDD1979889D86c8882dD8eb4e45A42d82e02b8',
+      ended: false,
+
+      name: '',
+      lp: '',
+      baseToken: WMATIC
       //STAKINGREWARDSFACTORY- 0x5D490e48417Dd2F6165CEB3b2c04352675278998
     },
 
@@ -59,12 +71,11 @@ export const STAKING_REWARDS_INFO: {
       stakingRewardAddress: '0xd0d51827C8D63fc6cF3d493977AC46f963D92C29',
       ended: false,
 
-      name: 'test',
+      name: '',
       lp: '',
       baseToken: XENO
       //STAKINGREWARDSFACTORY- 0x5D490e48417Dd2F6165CEB3b2c04352675278998
     },
-
   ]
 }
 

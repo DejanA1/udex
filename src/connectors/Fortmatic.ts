@@ -10,7 +10,7 @@ const CHAIN_ID_NETWORK_ARGUMENT: { readonly [chainId in FormaticSupportedChains]
   [ChainId.ROPSTEN]: 'ropsten',
   [ChainId.RINKEBY]: 'rinkeby',
   [ChainId.MATIC]: 'matic',
-  [ChainId.KOVAN]: 'kovan'
+  [ChainId.KOVAN]: 'kovan'  
 }
 
 export class FortmaticConnector extends FortmaticConnectorCore {

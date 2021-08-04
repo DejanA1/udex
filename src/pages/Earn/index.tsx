@@ -50,10 +50,11 @@ export default function Earn() {
    */
   // const stakingInfosWithBalance = stakingInfos?.filter(s => JSBI.greaterThan(s.stakedAmount.raw, BIG_INT_ZERO))
 
+
   // toggle copy if rewards are inactive
   const stakingRewardsExist = Boolean(typeof chainId === 'number' && (STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0)
   // console.log("akash")
-  // console.log("stakingInfos", stakingInfos)
+  console.log("stakingInfos", stakingInfos)
   // console.log("stakingInfosWithBalance", stakingInfosWithBalance)
   return (
     <PageWrapper gap="lg" justify="center">

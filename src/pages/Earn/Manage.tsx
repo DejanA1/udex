@@ -573,7 +573,7 @@ export default function Manage({
   //     }
   //   ]
   // }
-  console.log(stakingTokenPair)
+  console.log("debugStaking", stakingTokenPair)
   const stakingInfos = useStakingInfo(stakingTokenPair)
   let stakingInfo = stakingInfos?.reduce<any>((memo, staking) => {
     if (staking.stakingRewardAddress === rewardsAddress) {
