@@ -18,7 +18,7 @@ import { TYPE } from '../../theme'
 
 import { YellowCard } from '../Card'
 import { Moon, Sun } from 'react-feather'
-import Menu from '../Menu'
+// import Menu from '../Menu'
 
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
@@ -318,7 +318,7 @@ export default function Header() {
   const [showUniBalanceModal, setShowUniBalanceModal] = useState(false)
   const showClaimPopup = useShowClaimPopup()
 
-  const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
+  const countUpValue = aggregateBalance?.toFixed(3) ?? '0'
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
 
   return (
@@ -351,7 +351,7 @@ export default function Header() {
             {t('pool')}
           </StyledNavLink>
           <StyledNavLink id={`stake-nav-link`} to={'/farm'}>
-            Farm
+            Earn $Liquid
           </StyledNavLink>
           {/* <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
             Vote
@@ -399,7 +399,7 @@ export default function Header() {
                     </TYPE.white>
                   </HideSmall>
                 )}
-                NIOX
+                $Liquid
               </UNIAmount>
               <CardNoise />
             </UNIWrapper>
@@ -417,7 +417,7 @@ export default function Header() {
           <StyledMenuButton onClick={() => toggleDarkMode()}>
             {darkMode ? <Moon size={20} /> : <Sun size={20} />}
           </StyledMenuButton>
-          <Menu />
+          {/* <Menu /> */}
         </HeaderElementWrap>
       </HeaderControls>
     </HeaderFrame>

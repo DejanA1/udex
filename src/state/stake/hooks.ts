@@ -64,6 +64,17 @@ export const STAKING_REWARDS_INFO: {
       //STAKINGREWARDSFACTORY- 0x5D490e48417Dd2F6165CEB3b2c04352675278998
     },
 
+    {
+      tokens: [WMATIC, USDC],
+      stakingRewardAddress: '0x8f4e0f85ee66A9d2F4477df492FD29d7b12544b7',
+      ended: false,
+
+      name: 'WMATIC-USDC',
+      lp: '0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827',
+      baseToken: WMATIC
+      //STAKINGREWARDSFACTORY- 0x5D490e48417Dd2F6165CEB3b2c04352675278998
+    },
+
   ],
   [ChainId.ROPSTEN]: [//TODO: ropsten
     {

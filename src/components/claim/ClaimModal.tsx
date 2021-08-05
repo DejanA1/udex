@@ -98,11 +98,11 @@ export default function ClaimModal() {
             <CardNoise />
             <CardSection gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={500}>Claim NIOX</TYPE.white>
+                <TYPE.white fontWeight={500}>Claim $Liquid</TYPE.white>
                 <CloseIcon onClick={toggleClaimModal} style={{ zIndex: 99 }} color="white" />
               </RowBetween>
               <TYPE.white fontWeight={700} fontSize={36}>
-                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} NIOX
+                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} $Liquid
               </TYPE.white>
             </CardSection>
             <Break />
@@ -110,7 +110,7 @@ export default function ClaimModal() {
               {userClaimData?.flags?.isSOCKS && (
                 <RowBetween>
                   <TYPE.subHeader color="white">SOCKS</TYPE.subHeader>
-                  <TYPE.subHeader color="white">{SOCKS_AMOUNT} NIOX</TYPE.subHeader>
+                  <TYPE.subHeader color="white">{SOCKS_AMOUNT} $Liquid</TYPE.subHeader>
                 </RowBetween>
               )}
               {userClaimData?.flags?.isLP &&
@@ -122,22 +122,22 @@ export default function ClaimModal() {
                       {unclaimedAmount
                         .subtract(new TokenAmount(unclaimedAmount.token, nonLPAmount))
                         .toFixed(0, { groupSeparator: ',' })}{' '}
-                      NIOX
+                      $Liquid
                     </TYPE.subHeader>
                   </RowBetween>
                 )}
               {userClaimData?.flags?.isUser && (
                 <RowBetween>
                   <TYPE.subHeader color="white">User</TYPE.subHeader>
-                  <TYPE.subHeader color="white">{USER_AMOUNT} NIOX</TYPE.subHeader>
+                  <TYPE.subHeader color="white">{USER_AMOUNT} $Liquid</TYPE.subHeader>
                 </RowBetween>
               )}
             </CardSection>
           </ModalUpper>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="center">
             <TYPE.subHeader fontWeight={500}>
-              As a member of the Smartdex community you may claim NIOX to be used for voting and governance. <br /> <br />
-              <ExternalLink href="">Read more about NIOX</ExternalLink>
+              As a member of the Smartdex community you may claim $Liquid to be used for voting and governance. <br /> <br />
+              <ExternalLink href="">Read more about $Liquid</ExternalLink>
             </TYPE.subHeader>
             <ButtonPrimary
               disabled={!isAddress(account ?? '')}
@@ -147,7 +147,7 @@ export default function ClaimModal() {
               mt="1rem"
               onClick={onClaim}
             >
-              Claim NIOX
+              Claim $Liquid
             </ButtonPrimary>
           </AutoColumn>
         </ContentWrapper>
@@ -174,7 +174,7 @@ export default function ClaimModal() {
               </TYPE.largeHeader>
               {!claimConfirmed && (
                 <Text fontSize={36} color={'#ff007a'} fontWeight={800}>
-                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} NIOX
+                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} $Liquid
                 </Text>
               )}
             </AutoColumn>

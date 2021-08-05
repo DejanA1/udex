@@ -44,11 +44,10 @@ const initialState: ListsState = {
   activeListUrls: DEFAULT_ACTIVE_LIST_URLS
 }
 
-console.log("debugState", 12313)
-
 export default createReducer(initialState, builder =>
   builder
     .addCase(fetchTokenList.pending, (state, { payload: { requestId, url } }) => {
+      console.log('debug here fetchTokenList')
       state.byUrl[url] = {
         current: null,
         pendingUpdate: null,
@@ -58,6 +57,7 @@ export default createReducer(initialState, builder =>
       }
     })
     .addCase(fetchTokenList.fulfilled, (state, { payload: { requestId, tokenList, url } }) => {
+      console.log('debug here fetchTokenList')
       const current = state.byUrl[url]?.current
       const loadingRequestId = state.byUrl[url]?.loadingRequestId
 
@@ -79,7 +79,9 @@ export default createReducer(initialState, builder =>
         // activate if on default active
         if (DEFAULT_ACTIVE_LIST_URLS.includes(url)) {
           state.activeListUrls?.push(url)
+          console.log('debug here')
         }
+
         state.byUrl[url] = {
           ...state.byUrl[url],
           loadingRequestId: null,
@@ -90,10 +92,12 @@ export default createReducer(initialState, builder =>
       }
     })
     .addCase(fetchTokenList.rejected, (state, { payload: { url, requestId, errorMessage } }) => {
+      console.log('debug here fetchTokenList')
       if (state.byUrl[url]?.loadingRequestId !== requestId) {
         // no-op since it's not the latest request
         return
       }
+
       state.byUrl[url] = {
         ...state.byUrl[url],
         loadingRequestId: null,
@@ -103,38 +107,47 @@ export default createReducer(initialState, builder =>
       }
     })
     .addCase(addList, (state, { payload: url }) => {
+      console.log('debug here addList')
       if (!state.byUrl[url]) {
         state.byUrl[url] = NEW_LIST_STATE
       }
     })
     .addCase(removeList, (state, { payload: url }) => {
+      console.log('debug here removeList')
       if (state.byUrl[url]) {
         delete state.byUrl[url]
       }
       // remove list from active urls if needed
       if (state.activeListUrls && state.activeListUrls.includes(url)) {
         state.activeListUrls = state.activeListUrls.filter(u => u !== url)
+        console.log('debug here')
       }
     })
     .addCase(enableList, (state, { payload: url }) => {
+      console.log('debug here enableList')
       if (!state.byUrl[url]) {
         state.byUrl[url] = NEW_LIST_STATE
       }
 
       if (state.activeListUrls && !state.activeListUrls.includes(url)) {
         state.activeListUrls.push(url)
+        console.log('debug here')
       }
 
       if (!state.activeListUrls) {
         state.activeListUrls = [url]
+        console.log('debug here')
       }
     })
     .addCase(disableList, (state, { payload: url }) => {
+      console.log('debug here disableList')
       if (state.activeListUrls && state.activeListUrls.includes(url)) {
         state.activeListUrls = state.activeListUrls.filter(u => u !== url)
+        console.log('debug here')
       }
     })
     .addCase(acceptListUpdate, (state, { payload: url }) => {
+      console.log('debug here acceptListUpdate')
       if (!state.byUrl[url]?.pendingUpdate) {
         throw new Error('accept list update called without pending update')
       }
@@ -145,11 +158,15 @@ export default createReducer(initialState, builder =>
       }
     })
     .addCase(updateVersion, state => {
+      console.log('debug here updateVersion')
+      console.log('debug here stage 1', state)
       // state loaded from localStorage, but new lists have never been initialized
       if (!state.lastInitializedDefaultListOfLists) {
         state.byUrl = initialState.byUrl
         state.activeListUrls = initialState.activeListUrls
+        console.log('debug here')
       } else if (state.lastInitializedDefaultListOfLists) {
+        console.log('debug here 1')
         const lastInitializedSet = state.lastInitializedDefaultListOfLists.reduce<Set<string>>(
           (s, l) => s.add(l),
           new Set()
@@ -171,9 +188,17 @@ export default createReducer(initialState, builder =>
 
       state.lastInitializedDefaultListOfLists = DEFAULT_LIST_OF_LISTS
 
+
+      // const COMPOUND_LIST_A = 'https://raw.githubusercontent.com/compound-finance/token-list/master/compound.tokenlist.json'
+      // const COINGECKO_LIST_A = 'https://tokens.coingecko.com/uniswap/all.json'
+      // const LIQUID_LIST_A = "https://github.com/DejanA1/udex/blob/master/src/constants/tokenLists/token-list.json"
+
+      // const DEFAULT_ACTIVE_LIST_URLS_A: string[] = [COINGECKO_LIST_A, LIQUID_LIST_A]
+
       // if no active lists, activate defaults
       if (!state.activeListUrls) {
         state.activeListUrls = DEFAULT_ACTIVE_LIST_URLS
+        console.log('debug here 3')
 
         // for each list on default list, initialize if needed
         DEFAULT_ACTIVE_LIST_URLS.map((listUrl: string) => {
@@ -183,5 +208,7 @@ export default createReducer(initialState, builder =>
           return true
         })
       }
+      // state.activeListUrls = DEFAULT_ACTIVE_LIST_URLS_A
+      console.log('debug here stage 2', state.activeListUrls)
     })
 )

@@ -65,11 +65,11 @@ export default function Earn() {
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={600}>Smartdex liquidity mining</TYPE.white>
+                <TYPE.white fontWeight={600}>Udex liquidity mining</TYPE.white>
               </RowBetween>
               <RowBetween>
                 <TYPE.white fontSize={14}>
-                  Deposit your Liquidity Provider tokens to receive NIOX.
+                  Deposit your Liquidity Provider tokens to receive $Liquid.
                 </TYPE.white>
               </RowBetween>{' '}
               <ExternalLink

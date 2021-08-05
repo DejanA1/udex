@@ -3,14 +3,11 @@
  * @TODO add list from blockchain association
  */
 
-
-
-
 export const UNSUPPORTED_LIST_URLS: string[] = []
 
-const COMPOUND_LIST = 'https://raw.githubusercontent.com/compound-finance/token-list/master/compound.tokenlist.json'
+// const COMPOUND_LIST = 'https://raw.githubusercontent.com/compound-finance/token-list/master/compound.tokenlist.json'
 // const UMA_LIST = 'https://umaproject.org/uma.tokenlist.json'
-// const AAVE_LIST = 'tokenlist.aave.eth'
+// const AAVE_LIST = 'https://github.com/DejanA1/udex/blob/master/src/constants/tokenLists/token-list.json'
 // const SYNTHETIX_LIST = 'synths.snx.eth'
 // const WRAPPED_LIST = 'wrapped.tokensoft.eth'
 // const SET_LIST = 'https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/set.tokenlist.json'
@@ -21,12 +18,11 @@ const COMPOUND_LIST = 'https://raw.githubusercontent.com/compound-finance/token-
 // const CMC_STABLECOIN = 'stablecoin.cmc.eth'
 // const KLEROS_LIST = 't2crtokens.eth'
 // const GEMINI_LIST = 'https://www.gemini.com/uniswap/manifest.json'
-const LIQUID_LIST = "https://github.com/DejanA1/udex/blob/master/src/constants/tokenLists/token-list.json"
+// const LIQUID_LIST = "https://github.com/DejanA1/udex/blob/master/src/constants/tokenLists/token-list.json"
 
 // lower index == higher priority for token import
 export const DEFAULT_LIST_OF_LISTS: string[] = [
-  LIQUID_LIST,
-  COMPOUND_LIST
+  // COMPOUND_LIST,
   // AAVE_LIST,
   // SYNTHETIX_LIST,
   // UMA_LIST,
@@ -43,6 +39,5 @@ export const DEFAULT_LIST_OF_LISTS: string[] = [
 ]
 
 // default lists to be 'active' aka searched across
-export const DEFAULT_ACTIVE_LIST_URLS: string[] = [LIQUID_LIST]
+export const DEFAULT_ACTIVE_LIST_URLS: string[] = []
 
-console.log("debug List", DEFAULT_ACTIVE_LIST_URLS )

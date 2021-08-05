@@ -138,6 +138,7 @@ export function useActiveListUrls(): string[] | undefined {
 
 export function useInactiveListUrls(): string[] {
   const lists = useAllLists()
+  console.log('debug mmm', lists)
   const allActiveListUrls = useActiveListUrls()
   return Object.keys(lists).filter(url => !allActiveListUrls?.includes(url) && !UNSUPPORTED_LIST_URLS.includes(url))
 }
@@ -147,6 +148,7 @@ export function useCombinedActiveList(): TokenAddressMap {
   const activeListUrls = useActiveListUrls()
   const activeTokens = useCombinedTokenMapFromUrls(activeListUrls)
   const defaultTokenMap = listToTokenMap(DEFAULT_TOKEN_LIST)
+  console.log('debug xxx', activeListUrls, activeTokens)
   return combineMaps(activeTokens, defaultTokenMap)
 }
 
